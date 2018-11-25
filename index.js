@@ -1,7 +1,12 @@
-import express from 'express';
+import express from 'express'
+import expressGraphQL from 'express-graphql'
 
-const app = express();
+const app = express()
 
-const PORT = process.env.PORT || 4000;
+app.use('/graphql', expressGraphQL({
+  graphiql: true 
+}))
 
-app.listen(PORT, () => console.log(`SERVER RUNNING ON PORT: ${PORT}`));
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT, () => console.log(`SERVER RUNNING ON PORT: ${PORT}`))
