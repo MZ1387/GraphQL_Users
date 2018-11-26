@@ -17,16 +17,6 @@
       "firstName": "Peach",
       "age": 24,
       "companyId": "1"
-    },
-    {
-      "firstName": "User 1",
-      "age": 13,
-      "id": "nZHWhE9"
-    },
-    {
-      "firstName": "User 2",
-      "age": 67,
-      "id": "1Ishfhp"
     }
   ],
   "companies": [

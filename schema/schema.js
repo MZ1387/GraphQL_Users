@@ -42,8 +42,8 @@ const UserType = new GraphQLObjectType({
   })
 });
 
-const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
+const query = new GraphQLObjectType({
+  name: 'Query',
   fields: {
     user: {
       type: UserType,
@@ -79,10 +79,18 @@ const mutation = new GraphQLObjectType({
         return response.data;
       }
     },
+    deleteUser: {
+      type: UserType,
+      args: { id: { type: new GraphQLNonNull(GraphQLString) } },
+      async resolve(parentValue, { id }) {
+        const response = await axios.delete(`http://localhost:3000/users/${id}`);
+        return response.data;
+      }
+    },
   }
 });
 
 export default new GraphQLSchema({
-  query: RootQuery,
+  query,
   mutation
 });
