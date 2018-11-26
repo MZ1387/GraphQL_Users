@@ -1,10 +1,12 @@
-import graphql from 'graphql'
+const graphql = require('graphql');
+import _ from 'lodash';
 
 const {
   GraphQLObjectType,
+  GraphQLSchema,
   GraphQLString,
   GraphQLInt
-} = graphql
+} = graphql;
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -13,7 +15,7 @@ const UserType = new GraphQLObjectType({
     firstName: { type: GraphQLString },
     age: { type: GraphQLInt }
   }
-})
+});
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -22,8 +24,12 @@ const RootQuery = new GraphQLObjectType({
       type: UserType,
       args: { id: { type: GraphQLString } },
       resolve(parentValue, args) {
-
+        return _.find(users, { id: args.id });
       }
     }
   }
-})
+});
+
+export default new GraphQLSchema({
+  query: RootQuery
+});

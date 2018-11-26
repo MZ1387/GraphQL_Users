@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js --exec babel-node"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "json:server": "json-server --watch db.json"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +14,10 @@
     "@babel/polyfill": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "express": "^4.16.4",
-    "express-graphql": "^0.7.1",
-    "graphql": "^14.0.2",
-    "lodash": "^4.17.11"
+    "express": "^4.14.0",
+    "express-graphql": "^0.6.1",
+    "graphql": "^0.8.2",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"
